@@ -36,3 +36,107 @@
   .header-actions {
     margin-left: auto; /* "Притискає" до правого краю */
   }
+
+
+
+  /* резерв */
+
+  .reserve {
+    display: flex;
+    flex-direction: column;  /* Елементи в колонку */
+    align-items: center;    /* Центрування по горизонталі */
+    justify-content: center; /* Центрування по вертикалі (опціонально) */
+    gap: 15px;              /* Відступ між текстом і кнопкою */
+    width: 100%;
+    min-height: 300px;      /* Мінімальна висота блоку */
+    border: 1px solid #ddd; /* Для наочності */
+}
+
+.reserve-name {
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+    margin: 0;              /* Скидаємо стандартні відступи h1 */
+}
+
+.reserve-button {
+    padding: 8px 20px;      /* Розміри кнопки */
+    background: #010101;    /* Колір фону */
+    color: white;           /* Колір тексту */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  .reserve-name-two{
+    font-size: 10px;
+    position: relative;
+    bottom: 20px;
+  }
+
+
+  /* БУДИНКИ */
+
+  .house{
+    width: 100%;
+    
+
+  }
+  .house-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   gap: 20px;
+  }
+  .house-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 36px;
+  }
+
+  .house-one{
+    border: 1px solid #000; /* Товщина, стиль (solid), колір */
+  padding: 20px; /* Відступи всередині блоку */
+  border-radius: 8px;
+    
+    width: 313px;
+    height: 570px;
+    
+  }
+  .house-one-img{
+    width: 305px;
+    height: 215px;
+  }
+
+  .house-one-title{
+    font-size: 20px;
+    color: rgb(130, 99, 20);
+  }
+
+  .house-button{
+    padding: 8px 20px;      /* Розміри кнопки */
+    background: #010101;    /* Колір фону */
+    color: white;           /* Колір тексту */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    top: 20px;
+  }
+
+  .house-buy{
+    font-size: 25px;
+    padding-top: 10px;
+  }
+
+  .map{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+  }
+  .foter-nav{
+    padding-right: 200px;
+  }
+
