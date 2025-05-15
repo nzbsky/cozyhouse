@@ -8,7 +8,12 @@
   
   /* Лого - зліва */
   .header-logo {
-    margin-right: auto; /* "Притискає" лого до лівого краю */
+    margin-right: auto;
+     
+  }
+  .img-logo{
+    width: 150px;
+    height: 150px;
   }
   
   /* Навігація (список) - по центру */
