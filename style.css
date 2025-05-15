@@ -134,11 +134,138 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 50px;
+    padding-top: 100px;
   }
+ 
+
+  
   .foter-nav{
     padding-right: 200px;
   }
+
+  .faq-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.map {
+    width: 50%;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+}
+
+.map iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    border-radius: 8px;
+}
+
+.faq {
+  padding-top: 80px;
+    width: 50%;
+}
+
+.faq-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 0;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+}
+
+.faq-toggle {
+    font-size: 24px;
+    transition: transform 0.3s;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-left: 20px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding-top: 10px;
+}
+
+/* Додаткові стилі для адаптації на мобільних */
+@media (max-width: 768px) {
+    .faq-container {
+        flex-direction: column;
+    }
+    
+    .map, .faq {
+        width: 100%;
+    }
+    
+    .map {
+        position: static;
+        margin-bottom: 30px;
+    }
+}
+
+  .services-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.services{
+  
+  align-items: center;
+  justify-content: center;
+}
+
+.services-text{
+  font-size: 20px;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 80%;
+  box-sizing: border-box;
+}
+.services-section{
+  position: relative;
+  top: 36px;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -239,4 +366,23 @@
     font-size: 24px;
   }
 }
+.img-mesenger {
+  width: 50px; 
+  height: 50px;
+  transition: transform 0.3s; 
+}
 
+.img-mesenger:hover {
+  transform: scale(1.1);
+}
+
+
+.social-fixed {
+  position: fixed;
+  right: 20px; 
+  bottom: 20px;
+  display: flex;
+  flex-direction: column; 
+  gap: 10px;
+  z-index: 1000; 
+}
