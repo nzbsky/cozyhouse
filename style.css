@@ -1,268 +1,3 @@
-.header {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 150px;
-    padding: 0 20px; /* Відступи по боках */
-  }
-  
-  /* Лого - зліва */
-  .header-logo {
-    margin-right: auto;
-     
-  }
-  .img-logo{
-    width: 150px;
-    height: 150px;
-  }
-  
-  /* Навігація (список) - по центру */
-  .header-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute; /* Або flex-grow: 1; */
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .header-nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .header-nav li {
-    margin: 0 15px; /* Відступи між пунктами */
-  }
-  
-  /* Додатковий блок (напр., кнопки) - справа */
-  .header-actions {
-    margin-left: auto; /* "Притискає" до правого краю */
-  }
-
-
-
-  /* резерв */
-
-  .reserve {
-    display: flex;
-    flex-direction: column;  /* Елементи в колонку */
-    align-items: center;    /* Центрування по горизонталі */
-    justify-content: center; /* Центрування по вертикалі (опціонально) */
-    gap: 15px;              /* Відступ між текстом і кнопкою */
-    width: 100%;
-    min-height: 300px;      /* Мінімальна висота блоку */
-    border: 1px solid #ddd; /* Для наочності */
-}
-
-.reserve-name {
-  font-family: "JetBrains Mono", monospace;
-  font-optical-sizing: auto;
-  font-weight: weight;
-  font-style: normal;
-    margin: 0;              /* Скидаємо стандартні відступи h1 */
-}
-
-.reserve-button {
-    padding: 8px 20px;      /* Розміри кнопки */
-    background: #010101;    /* Колір фону */
-    color: white;           /* Колір тексту */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-  .reserve-name-two{
-    font-size: 10px;
-    position: relative;
-    bottom: 20px;
-  }
-
-
-  /* БУДИНКИ */
-
-  .house{
-    width: 100%;
-    
-
-  }
-  .house-info{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   gap: 20px;
-  }
-  .house-logo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 36px;
-  }
-
-  .house-one{
-    border: 1px solid #000; /* Товщина, стиль (solid), колір */
-  padding: 20px; /* Відступи всередині блоку */
-  border-radius: 8px;
-    
-    width: 313px;
-    height: 570px;
-    
-  }
-  .house-one-img{
-    width: 305px;
-    height: 215px;
-  }
-
-  .house-one-title{
-    font-size: 20px;
-    color: rgb(130, 99, 20);
-  }
-
-  .house-button{
-    padding: 8px 20px;      /* Розміри кнопки */
-    background: #010101;    /* Колір фону */
-    color: white;           /* Колір тексту */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    position: relative;
-    top: 20px;
-  }
-
-  .house-buy{
-    font-size: 25px;
-    padding-top: 10px;
-  }
-
-  .map{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 100px;
-  }
- 
-
-  
-  .foter-nav{
-    padding-right: 200px;
-  }
-
-  .faq-container {
-    display: flex;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 20px;
-}
-
-.map {
-    width: 50%;
-    position: sticky;
-    top: 20px;
-    align-self: flex-start;
-}
-
-.map iframe {
-    width: 100%;
-    height: 450px;
-    border: none;
-    border-radius: 8px;
-}
-
-.faq {
-  padding-top: 80px;
-    width: 50%;
-}
-
-.faq-title {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 30px;
-    color: #333;
-}
-
-.faq-item {
-    border-bottom: 1px solid #e0e0e0;
-    padding: 20px 0;
-}
-
-.faq-question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    color: #222;
-}
-
-.faq-toggle {
-    font-size: 24px;
-    transition: transform 0.3s;
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    padding-left: 20px;
-    color: #555;
-    line-height: 1.5;
-}
-
-.faq-item.active .faq-toggle {
-    transform: rotate(45deg);
-}
-
-.faq-item.active .faq-answer {
-    max-height: 200px;
-    padding-top: 10px;
-}
-
-/* Додаткові стилі для адаптації на мобільних */
-@media (max-width: 768px) {
-    .faq-container {
-        flex-direction: column;
-    }
-    
-    .map, .faq {
-        width: 100%;
-    }
-    
-    .map {
-        position: static;
-        margin-bottom: 30px;
-    }
-}
-
-  .services-title{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.services{
-  
-  align-items: center;
-  justify-content: center;
-}
-
-.services-text{
-  font-size: 20px;
-   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: 0 auto;
-  padding: 0 15px;
-  max-width: 80%;
-  box-sizing: border-box;
-}
-.services-section{
-  position: relative;
-  top: 36px;
-}
 
 
 
@@ -274,120 +9,463 @@
 
 
 
-  /* Мобільна версія (max-width: 768px) */
-@media (max-width: 768px) {
-  /* Хедер */
-  .header {
-    height: auto;
-    padding: 15px 10px;
-    flex-direction: column;
-  }
-  
-  .header-logo {
-    margin-right: 0;
-    margin-bottom: 15px;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .header-nav {
-    position: static;
-    left: auto;
-    transform: none;
-    width: 100%;
-    margin: 10px 0;
-  }
-  
-  .header-nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .header-nav li {
-    margin: 5px 0;
-  }
-  
-  .header-actions {
-    margin-left: 0;
-    width: 100%;
-    text-align: center;
-    margin-top: 15px;
-  }
-
-  /* Блок резерву */
-  .reserve {
-    min-height: 200px;
-    padding: 20px 10px;
-  }
-  
-  .reserve-name-two {
-    bottom: 10px;
-    font-size: 8px;
-  }
-
-  /* Блоки з будинками */
-  .house-info {
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .house-one {
-    width: 90%;
-    height: auto;
-    padding: 15px;
-  }
-  
-  .house-one-img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .house-button {
-    top: 10px;
-    margin-bottom: 15px;
-  }
-
-  /* Футер */
-  .foter-nav {
-    padding-right: 0;
-    text-align: center;
-  }
-}
-
-/* Для дуже малих екранів (до 480px) */
-@media (max-width: 480px) {
-  .house-one-title {
-    font-size: 18px;
-  }
-  
-  .house-buy {
-    font-size: 20px;
-  }
-  
-  .reserve-name {
-    font-size: 24px;
-  }
-}
-.img-mesenger {
-  width: 50px; 
-  height: 50px;
-  transition: transform 0.3s; 
-}
-
-.img-mesenger:hover {
-  transform: scale(1.1);
-}
 
 
-.social-fixed {
-  position: fixed;
-  right: 20px; 
-  bottom: 20px;
-  display: flex;
-  flex-direction: column; 
-  gap: 10px;
-  z-index: 1000; 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Основні стилі */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Хедер */
+        .header {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 150px;
+            padding: 0 20px;
+        }
+        
+        .header-logo {
+            margin-right: auto;
+        }
+        
+        .img-logo {
+            width: 150px;
+            height: 150px;
+        }
+        
+        .header-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .header-nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .header-nav li {
+            margin: 0 15px;
+        }
+        
+        /* Резерв */
+        .reserve {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            min-height: 300px;
+            border: 1px solid #ddd;
+        }
+        
+        .reserve-name {
+            font-family: "JetBrains Mono", monospace;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+            margin: 0;
+        }
+        
+        .reserve-button {
+            padding: 8px 20px;
+            background: #010101;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .reserve-name-two {
+            font-size: 10px;
+            position: relative;
+            bottom: 20px;
+        }
+        
+        /* Будинки */
+        .house {
+            width: 100%;
+        }
+        
+        .house-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .house-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 36px;
+        }
+        
+        .house-one {
+            border: 1px solid #000;
+            padding: 20px;
+            border-radius: 8px;
+            width: 313px;
+            height: 570px;
+            cursor: pointer;
+        }
+        
+        .house-one-img {
+            width: 305px;
+            height: 215px;
+            object-fit: cover;
+        }
+        
+        .house-one-title {
+            font-size: 20px;
+            color: rgb(130, 99, 20);
+        }
+        
+        .house-button {
+            padding: 8px 20px;
+            background: #010101;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+            top: 20px;
+        }
+        
+        .house-buy {
+            font-size: 25px;
+            padding-top: 10px;
+        }
+        
+        /* Галерея */
+        .gallery-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .gallery-container {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .gallery-main-img {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .gallery-thumbnails {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .gallery-thumbnail {
+            width: 80px;
+            height: 60px;
+            margin: 5px;
+            cursor: pointer;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-thumbnail:hover, .gallery-thumbnail.active {
+            opacity: 1;
+        }
+        
+        .gallery-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 15px;
+            border-radius: 50%;
+        }
+        
+        .gallery-prev {
+            left: 15px;
+        }
+        
+        .gallery-next {
+            right: 15px;
+        }
+        
+        /* Інші стилі */
+        .map {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 100px;
+        }
+        
+        .foter-nav {
+            padding-right: 200px;
+        }
+        
+        .faq-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 20px;
+        }
+        
+        .map {
+            width: 50%;
+            position: sticky;
+            top: 20px;
+            align-self: flex-start;
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 8px;
+        }
+        
+        .faq {
+            padding-top: 80px;
+            width: 50%;
+        }
+        
+        .faq-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px 0;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            color: #222;
+        }
+        
+        .faq-toggle {
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding-left: 20px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-top: 10px;
+        }
+        
+        .services-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .services {
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .services-text {
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 0 auto;
+            padding: 0 15px;
+            max-width: 80%;
+            box-sizing: border-box;
+        }
+        
+        .services-section {
+            position: relative;
+            top: 36px;
+        }
+        
+        .img-mesenger {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.3s;
+        }
+        
+        .img-mesenger:hover {
+            transform: scale(1.1);
+        }
+        
+        .social-fixed {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+        
+        /* Мобільна версія */
+        @media (max-width: 768px) {
+            .header {
+                height: auto;
+                padding: 15px 10px;
+                flex-direction: column;
+            }
+            
+            .header-logo {
+                margin-right: 0;
+                margin-bottom: 15px;
+                width: 100%;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .header-nav {
+                position: static;
+                left: auto;
+                transform: none;
+                width: 100%;
+                margin: 10px 0;
+            }
+            
+            .header-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .header-nav li {
+                margin: 5px 0;
+            }
+            
+            .faq-container {
+                flex-direction: column;
+            }
+            
+            .map, .faq {
+                width: 100%;
+            }
+            
+            .map {
+                position: static;
+                margin-bottom: 30px;
+            }
+            
+            .house-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .house-one {
+                width: 90%;
+                height: auto;
+                padding: 15px;
+            }
+            
+            .house-one-img {
+                width: 100%;
+                height: auto;
+            }
+            
+            .foter-nav {
+                padding-right: 0;
+                text-align: center;
+            }
+            
+            .gallery-nav {
+                font-size: 20px;
+                padding: 5px 10px;
+            }
+            
+            .gallery-thumbnail {
+                width: 60px;
+                height: 45px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .house-one-title {
+                font-size: 18px;
+            }
+            
+            .house-buy {
+                font-size: 20px;
+            }
+            
+            .reserve-name {
+                font-size: 24px;
+            }
+        }
