@@ -92,11 +92,13 @@
         .logo-reserve{
             width: 300px;
             height: 100px;
+            
         }
         .logo-slavsko{
             position: relative;
             bottom: 25px;
             left: 65px;
+            color: white;
         }
         
         .reserve-name {
@@ -520,6 +522,7 @@
         }
         
         @media (max-width: 425px) {
+            
             .house-one-title {
                 font-size: 18px;
             }
