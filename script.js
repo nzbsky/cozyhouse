@@ -25,10 +25,10 @@
                     
                 ],
                 house3: [
-                    { src: './img/smoal/Smoul1.jpg', alt: 'Будинок 2 Особи - фото 1' },
-                     { src: './img/smoal/Smoul2.jpg', alt: 'Будинок 2 Особи - фото 2' },
-                      { src: './img/smoal/Smoul3.jpg', alt: 'Будинок 2 Особи - фото 3' },
-                       { src: './img/smoal/Smoul4.jpg', alt: 'Будинок 2 Особи - фото 4' },
+                    { src: './img/smoal/Smoul1.JPG', alt: 'Будинок 2 Особи - фото 1' },
+                    { src: './img/smoal/Smoul2.JPG', alt: 'Будинок 2 Особи - фото 2' },
+                    { src: './img/smoal/Smoul3.JPG', alt: 'Будинок 2 Особи - фото 3' },
+                    { src: './img/smoal/Smoul4.JPG', alt: 'Будинок 2 Особи - фото 4' },
                     
                 ]
             };
