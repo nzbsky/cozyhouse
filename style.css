@@ -54,6 +54,18 @@
             width: 150px;
             height: 150px;
         }
+      
+       .wait{
+        display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+       }
+        .wait-title{
+            color: white;
+            font-size: 1px;
+            
+        }
         
         .header-nav {
             display: flex;
