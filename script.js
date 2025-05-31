@@ -1,4 +1,4 @@
- // Галерея
+
         document.addEventListener('DOMContentLoaded', function() {
             // Галерея для кожного будинку
             const galleries = {
