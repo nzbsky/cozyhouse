@@ -1,288 +1,733 @@
-
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Будинки в карпатах.Котеджі для відпочинку">
-    <meta name="keywords" content="котеджі, відпочинок, карпати, відпочинок в карпатах">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CozyHouse</title>
-    <link rel="icon" href="./img/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./reset.css">
-   
+    <title>FashionShop | Інтернет-магазин</title>
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --primary-dark: #5649c0;
+            --secondary: #00cec9;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --success: #00b894;
+            --danger: #d63031;
+            --warning: #fdcb6e;
+            --gray: #dfe6e9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        
+        .auth-section {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        /* Button styles */
+        .btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+        
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 14px;
+        }
+        
+        /* Form styles */
+        .form-container {
+            max-width: 500px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-title {
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        /* Products grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--success);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* Cart styles */
+        .cart-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .cart-title {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .cart-item-image {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .cart-item-name {
+            font-weight: 600;
+        }
+        
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .cart-total {
+            margin-top: 20px;
+            text-align: right;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        /* Admin panel */
+        .admin-panel {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .admin-title {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        /* Utility classes */
+        .hidden {
+            display: none !important;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-4 {
+            margin-top: 40px;
+        }
+        
+        .mb-4 {
+            margin-bottom: 40px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .auth-section {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    
-    <header class="header">
-        <div class="header-logo">
-            <a href="https://cozyhouse-slavsko.com/"><img class="img-logo" src="./img/logo-cozyhouse-home.svg" alt="Лого"></a>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-shopping-bag"></i>
+                    FashionShop
+                </a>
+                
+                <div class="auth-section">
+                    <div id="auth-buttons">
+                        <button class="btn btn-outline" onclick="showForm('login-form')">
+                            <i class="fas fa-sign-in-alt"></i> Увійти
+                        </button>
+                        <button class="btn btn-primary" onclick="showForm('register-form')">
+                            <i class="fas fa-user-plus"></i> Зареєструватись
+                        </button>
+                    </div>
+                    <div id="user-info" class="hidden">
+                        <div class="user-info">
+                            <div class="user-avatar" id="user-avatar">U</div>
+                            <span id="username-display"></span>
+                        </div>
+                        <button class="btn btn-danger btn-sm" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <nav class="header-nav" id="header">
-            <ul>
-                <li><a href="#header">Головна</a></li>
-                <li><a href="#house">Про нас</a></li>
-                <li><a href="#foter">Контакти</a></li>
-            </ul>
-        </nav>
-        <ul class="logo-mereres">
-           <a href="https://www.tiktok.com/@cozy.house_karpaty"> <img  class="logo-mereres-img" src="./img/tt.svg" alt=""></a>
-           <a href="https://www.instagram.com/cozyhouse_karpaty/"> <img class="logo-mereres-img" src="./img/inst.svg" alt=""></a>
-           <a href="https://t.me/cozyhouse_slavske"> <img class="logo-mereres-img" src="./img/tg.svg" alt=""></a>
-        </ul>
     </header>
-    <div class="reserve">
-         <img class="logo-reserve" src="./img/logo-reserve-white.svg" alt="">
-         <h4 class="logo-slavsko">slavsko</h4>
-        <button class="reserve-button">RESERVE</button>
-    </div>
-   
-   
-       
-    <div class="house" id="house">
-        <h1 class="house-logo">Оберіть простір для відпочинку</h1>
-        <div class="house-info">
-            <div class="house-one" data-house="house1">
-                <img class="house-one-img" src="./img/великий.JPG" alt="Будинок 6 Осіб">
-                <h1 class="house-one-title">Будинок "6 Осіб"</h1>
-                <p>Ідеально підходить для великої родини. У будинку є стильна вітальня з каміном чудове місце для вечірніх посиденьок, а також проектор для перегляду фільмів. Обладнана кухня, зручні спальні, краєвиди та свіже повітря.</p>
-                <h1 class="house-buy">6000 грн/доба</h1>
-                <button class="house-button">Забронювати</button>
+
+    <main class="container">
+        <!-- Форми реєстрації та входу -->
+        <div id="login-form" class="form-container hidden">
+            <h2 class="form-title">Вхід в акаунт</h2>
+            <form onsubmit="login(event)">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Пароль</label>
+                    <input type="password" id="login-password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-sign-in-alt"></i> Увійти
+                </button>
+            </form>
+        </div>
+
+        <div id="register-form" class="form-container hidden">
+            <h2 class="form-title">Створення акаунту</h2>
+            <form onsubmit="register(event)">
+                <div class="form-group">
+                    <label for="register-name">Ім'я</label>
+                    <input type="text" id="register-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Пароль</label>
+                    <input type="password" id="register-password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-user-plus"></i> Зареєструватись
+                </button>
+            </form>
+        </div>
+
+        <!-- Список товарів -->
+        <h2 class="mt-4">Наші товари</h2>
+        <div class="products-grid" id="products-list">
+            <!-- Товари будуть додаватись тут -->
+        </div>
+
+        <!-- Панель адміністратора (тільки для podobivskijnazar@gmail.com) -->
+        <div id="admin-panel" class="admin-panel hidden">
+            <h2 class="admin-title"><i class="fas fa-cog"></i> Панель адміністратора</h2>
+            <form onsubmit="addProduct(event)">
+                <div class="form-group">
+                    <label for="product-name">Назва товару</label>
+                    <input type="text" id="product-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-description">Опис</label>
+                    <textarea id="product-description" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="product-price">Ціна (грн)</label>
+                    <input type="number" id="product-price" class="form-control" step="0.01" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-image">Зображення (URL)</label>
+                    <input type="url" id="product-image" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-plus"></i> Додати товар
+                </button>
+            </form>
+        </div>
+
+        <!-- Кошик -->
+        <div id="cart-section" class="cart-section hidden">
+            <h2 class="cart-title"><i class="fas fa-shopping-cart"></i> Ваш кошик</h2>
+            <div id="cart-items">
+                <p class="text-center">Кошик порожній</p>
             </div>
-        
-            <div class="house-one" data-house="house2">
-                <img class="house-one-img" src="./img/Середній.JPG" alt="Будинок 4 Особи">
-                <h1 class="house-one-title">Будинок "4 Особи"</h1>
-                <p>Всередині повністю обладнана кухня, затишна зона відпочинку з диванчиком, тепла атмосфера дерев'яного інтер'єру. Ідеально підходить для спільного відпочинку, катання на лижах чи просто спокійних вечорів біля природи!</p>
-                <h1 class="house-buy">4000 грн/доба</h1>
-                <button class="house-button">Забронювати</button>
-            </div>
-            
-            <div class="house-one" data-house="house3">
-                <img class="house-one-img" src="./img/Мали (3).jpg" alt="Будинок 2 Особи">
-                <h1 class="house-one-title">Будинок "2 Особи"</h1>
-                <p>Ідеальне місце для романтичного відпочинку або втечі від міської метушні. Всередині — компактна кухня для приготування улюблених страв, зручний маленький диванчик для вечірнього затишку та атмосфера справжнього спокою гір.</p>
-                <h1 class="house-buy">3000 грн/доба</h1>
-                <button class="house-button">Забронювати</button>
+            <div id="cart-total" class="hidden">
+                <div class="cart-total">
+                    Загальна сума: <span id="total-amount">0</span> грн
+                </div>
+                <button class="btn btn-primary" onclick="checkout()" style="width: 100%; margin-top: 20px;">
+                    <i class="fas fa-credit-card"></i> Оформити замовлення
+                </button>
             </div>
         </div>
-    </div>
-    
-    <!-- Галерея -->
-    <div class="gallery-overlay" id="galleryOverlay">
-        <div class="gallery-container">
-            <span class="gallery-close" id="galleryClose">&times;</span>
-            <img class="gallery-main-img" id="galleryMainImg" src="" alt="">
-            <div class="gallery-thumbnails" id="galleryThumbnails"></div>
-            <span class="gallery-nav gallery-prev" id="galleryPrev">&#10094;</span>
-            <span class="gallery-nav gallery-next" id="galleryNext">&#10095;</span>
-        </div>
-    </div>
-    
-    <section class="services-section">
-        <h2 class="services-title">Додаткові послуги</h2>
-        <div class="services-conteiner">
-            <div class="services-img">
-                <img class="services-imeg" src="./img/chan.jpg" alt="">
-                <h3 class="services-img-title">Карпатський чан </h3>
-                <p class="services-img-txt">Ідеальний спосіб розслабитися після активного дня. Тепла вода з травами під відкритим небом дарує справжній релакс і оздоровлення.</p>
-            </div>
-            <div class="services-img">
-                <img class="services-imeg" src="./img/dzip.jpg" alt="">
-                <h5 class="services-img-title">Катання на квадроциклах/джипах </h5>
-                <p class="services-img-txt">Адреналін і пригоди гарантовано! Відчуйте драйв, досліджуючи гірські стежки та мальовничі краєвиди Карпат.</p>
-            </div>
-        </div>
-    </section>
-    
-    <div class="faq-container">
-        <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d138482.04193864003!2d23.28174753753895!3d48.860392106502566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47398d290684aabb%3A0x931f501bb8c7eef7!2scozyhouse!5e0!3m2!1sru!2sua!4v1746980048515!5m2!1sru!2sua" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        
-        <div class="faq">
-            <h1 class="faq-title">FAQ</h1>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>1. Як можна забронювати будиночок?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Ви можете забронювати будиночок через наш сайт, зателефонувавши за номером +380 98 099 88 25 або написавши нам у Telegram.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>2. Чи потрібно вносити передоплату?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Так, для підтвердження бронювання необхідно внести передоплату у розмірі 30% від вартості проживання.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>3. Що входить у вартість проживання?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>У вартість проживання входить оренда будинку,BBQ зона, басейн розміром: 6х3, постільна білизна, рушники, базові миючі засоби та паркування.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>4. Чи можна змінити або скасувати бронювання?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Змінити дати бронювання можна за 3 дні до заїзду. Скасування бронювання можливе за 3 дні до заїзду з поверненням передоплати.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>5. Чи є обмеження за кількістю гостей?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Так, максимальна кількість гостей вказана в описі кожного будиночка.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <header class="header">
-        <div class="header-logo">
-            <a href="https://cozyhouse-slavsko.com/"><img class="img-logo" src="./img/logo-cozyhouse-home.svg" alt="Лого"></a>
-        </div>
-        
-        <nav class="foter-nav" id="foter">
-            <h1 class="header-logo">Контакти:</h1>
-            <ul>
-                <li><a href="tel:+380980998825">+380 98 099 88 25</a></li>
-                <li><a href="mailto:cozyhouse.karpaty@gmail.com">cozyhouse.karpaty@gmail.com</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <footer class="footer-two">
-        <a href="./uhoda.html">Положення про конфіденційність</a>
-        <a href="./uhoda-koristevakha.html">Угода користувача</a>
-        <a class="rozrobnik" href="https://t.me/nzbsky">сайт розробив Назар Подобівський</a>
-    </footer>
-    
-    <div class="social-fixed">
-        <a href="https://t.me/cozyhouse_slavske"><img src="./img/tg.svg" alt="" class="img-mesenger"></a>
-        <a href="https://www.instagram.com/cozyhouse_karpaty/"><img src="./img/inst.svg" alt="" class="img-mesenger"></a>
-    </div>
-    
-    <!-- Модальне вікно -->
-    <div class="modal-overlay" id="modalOverlay"></div>
-    
-    <script src="./script.js"></script>
-  <script>
+    </main>
+
+    <script>
+        // База даних (в реальному додатку це буде серверна частина)
+        let users = [];
+        let products = [
+            { 
+                id: 1, 
+                name: "Чоловічі кросівки", 
+                description: "Стильні кросівки для повсякденного носіння", 
+                price: 2499.99, 
+                image: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                badge: "Новинка"
+            },
+            { 
+                id: 2, 
+                name: "Жіноча сукня", 
+                description: "Елегантна сукня для особливих випадків", 
+                price: 1899.99, 
+                image: "https://images.unsplash.com/photo-1539008835657-9e8e9680e956?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                badge: "Хіт"
+            },
+            { 
+                id: 3, 
+                name: "Чоловіча куртка", 
+                description: "Тепла зимова куртка з натуральних матеріалів", 
+                price: 3599.99, 
+                image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                badge: "Акція"
+            }
+        ];
+        let cart = [];
+        let currentUser = null;
+
+        // Ініціалізація додатку
         document.addEventListener('DOMContentLoaded', function() {
-            // Модальне вікно для бронювання
-            const reserveButtons = document.querySelectorAll('.reserve-button, .house-button');
-            const modalOverlay = document.getElementById('modalOverlay');
-            
-            // Створення модального вікна
-            const createModal = (title, houseType) => {
-                return `
-                    <div class="modal">
-                        <div class="modal-header">
-                            <h3>${title}</h3>
-                            <span class="modal-close">&times;</span>
-                        </div>
-                        <div class="modal-body">
-                            <form id="reservationForm" action="https://formspree.io/f/xgvywnbo" method="POST">
-                                <input type="hidden" name="house_type" value="${houseType}">
-                                <div class="form-group">
-                                    <label for="name">Ім'я:</label>
-                                    <input type="text" id="name" name="name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Номер телефону:</label>
-                                    <input type="tel" id="phone" name="phone" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="people">Кількість осіб:</label>
-                                    <input type="number" id="people" name="people" min="1" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="date">Дата заїзду:</label>
-                                    <input type="date" id="date" name="date" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="nights">Кількість діб:</label>
-                                    <input type="number" id="nights" name="nights" min="1" required>
-                                </div>
-                                
-                                <button type="submit" class="modal-submit">Надіслати заявку</button>
-                            </form>
-                        </div>
+            renderProducts();
+        });
+
+        // Функції для форм
+        function showForm(formId) {
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('register-form').classList.add('hidden');
+            document.getElementById(formId).classList.remove('hidden');
+        }
+
+        function hideForms() {
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('register-form').classList.add('hidden');
+        }
+
+        // Реєстрація
+        function register(event) {
+            event.preventDefault();
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+
+            // Перевірка чи користувач вже існує
+            if (users.some(user => user.email === email)) {
+                alert('Користувач з таким email вже існує');
+                return;
+            }
+
+            // Додавання нового користувача
+            users.push({ name, email, password });
+            alert('Реєстрація успішна! Тепер увійдіть.');
+            hideForms();
+            document.getElementById('register-name').value = '';
+            document.getElementById('register-email').value = '';
+            document.getElementById('register-password').value = '';
+        }
+
+        // Вхід
+        function login(event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            // Пошук користувача
+            const user = users.find(u => u.email === email && u.password === password);
+            if (user) {
+                currentUser = user;
+                updateUIAfterLogin();
+                alert('Вітаємо, ' + user.name + '! Вхід успішний.');
+                hideForms();
+                
+                // Показуємо кошик
+                document.getElementById('cart-section').classList.remove('hidden');
+                
+                // Перевірка чи це адмін
+                if (email === 'podobivskijnazar@gmail.com') {
+                    document.getElementById('admin-panel').classList.remove('hidden');
+                }
+            } else {
+                alert('Невірний email або пароль');
+            }
+
+            document.getElementById('login-email').value = '';
+            document.getElementById('login-password').value = '';
+        }
+
+        // Оновлення UI після входу
+        function updateUIAfterLogin() {
+            document.getElementById('auth-buttons').classList.add('hidden');
+            document.getElementById('user-info').classList.remove('hidden');
+            document.getElementById('username-display').textContent = currentUser.name;
+            document.getElementById('user-avatar').textContent = currentUser.name.charAt(0).toUpperCase();
+        }
+
+        // Вихід
+        function logout() {
+            currentUser = null;
+            document.getElementById('auth-buttons').classList.remove('hidden');
+            document.getElementById('user-info').classList.add('hidden');
+            document.getElementById('admin-panel').classList.add('hidden');
+            document.getElementById('cart-section').classList.add('hidden');
+            cart = [];
+            updateCart();
+        }
+
+        // Відображення товарів
+        function renderProducts() {
+            const productsList = document.getElementById('products-list');
+            productsList.innerHTML = '';
+
+            products.forEach(product => {
+                const productElement = document.createElement('div');
+                productElement.className = 'product-card';
+                productElement.innerHTML = `
+                    ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                    <img src="${product.image || 'https://via.placeholder.com/500'}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">${product.price.toFixed(2)} грн</div>
+                        <button class="btn btn-primary" onclick="addToCart(${product.id})" style="width: 100%;">
+                            <i class="fas fa-cart-plus"></i> В кошик
+                        </button>
                     </div>
                 `;
+                productsList.appendChild(productElement);
+            });
+        }
+
+        // Додавання товару в кошик
+        function addToCart(productId) {
+            if (!currentUser) {
+                alert('Будь ласка, увійдіть, щоб додавати товари в кошик');
+                showForm('login-form');
+                return;
+            }
+
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                cart.push(product);
+                updateCart();
+                
+                // Анімація додавання в кошик
+                const button = event.target;
+                button.innerHTML = '<i class="fas fa-check"></i> Додано';
+                button.style.backgroundColor = 'var(--success)';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-cart-plus"></i> В кошик';
+                    button.style.backgroundColor = 'var(--primary)';
+                }, 1000);
+            }
+        }
+
+        // Оновлення кошика
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-center">Кошик порожній</p>';
+                cartTotal.classList.add('hidden');
+                return;
+            }
+
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <div class="cart-item-info">
+                        <img src="${item.image || 'https://via.placeholder.com/60'}" alt="${item.name}" class="cart-item-image">
+                        <div>
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">${item.price.toFixed(2)} грн</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger btn-sm" onclick="removeFromCart(${item.id})">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                cartItems.appendChild(itemElement);
+                total += item.price;
+            });
+
+            document.getElementById('total-amount').textContent = total.toFixed(2);
+            cartTotal.classList.remove('hidden');
+        }
+
+        // Видалення з кошика
+        function removeFromCart(productId) {
+            const index = cart.findIndex(item => item.id === productId);
+            if (index !== -1) {
+                cart.splice(index, 1);
+                updateCart();
+            }
+        }
+
+        // Оформлення замовлення
+        function checkout() {
+            if (cart.length === 0) return;
+            
+            alert(`Дякуємо за замовлення, ${currentUser.name}!\nСума: ${document.getElementById('total-amount').textContent} грн`);
+            cart = [];
+            updateCart();
+        }
+
+        // Додавання товару (тільки для адміна)
+        function addProduct(event) {
+            event.preventDefault();
+            if (!currentUser || currentUser.email !== 'podobivskijnazar@gmail.com') {
+                alert('Доступ заборонено');
+                return;
+            }
+
+            const name = document.getElementById('product-name').value;
+            const description = document.getElementById('product-description').value;
+            const price = parseFloat(document.getElementById('product-price').value);
+            const image = document.getElementById('product-image').value;
+
+            const newProduct = {
+                id: products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1,
+                name,
+                description,
+                price,
+                image,
+                badge: "Новинка"
             };
 
-            // Відкриття модального вікна
-            reserveButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const title = this.textContent.trim() === 'RESERVE' 
-                        ? 'Бронювання CozyHouse' 
-                        : `Бронювання ${this.closest('.house-one').querySelector('.house-one-title').textContent}`;
-                    
-                    const houseType = this.textContent.trim() === 'RESERVE' 
-                        ? 'General Inquiry' 
-                        : this.closest('.house-one').querySelector('.house-one-title').textContent;
-                    
-                    modalOverlay.innerHTML = createModal(title, houseType);
-                    modalOverlay.style.display = 'flex';
-                    
-                    // Закриття модального вікна
-                    const closeButton = modalOverlay.querySelector('.modal-close');
-                    closeButton.addEventListener('click', () => {
-                        modalOverlay.style.display = 'none';
-                    });
-                    
-                    // Обробка відправки форми
-                    const form = modalOverlay.querySelector('#reservationForm');
-                    form.addEventListener('submit', function(e) {
-                        // Тут можна додати додаткову логіку перед відправкою
-                        // Наприклад, валідацію даних
-                    });
-                });
-            });
+            products.push(newProduct);
+            renderProducts();
 
-            // Закриття модального вікна при кліку на оверлей
-            modalOverlay.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.style.display = 'none';
-                }
-            });
+            // Очищення форми
+            document.getElementById('product-name').value = '';
+            document.getElementById('product-description').value = '';
+            document.getElementById('product-price').value = '';
+            document.getElementById('product-image').value = '';
 
-            // FAQ акордеон
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                question.addEventListener('click', () => {
-                    item.classList.toggle('active');
-                });
-            });
-            
-        });
-        
-        
+            alert('Товар успішно додано!');
+        }
     </script>
 </body>
 </html>
