@@ -187,8 +187,7 @@
     <div class="modal-overlay" id="modalOverlay"></div>
     
     <script src="./script.js"></script>
-        
-    <script>
+  <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Модальне вікно для бронювання
             const reserveButtons = document.querySelectorAll('.reserve-button, .house-button');
@@ -213,7 +212,7 @@
                                     <label for="phone">Номер телефону:</label>
                                     <input type="tel" id="phone" name="phone" required>
                                 </div>
-                               
+                                
                                 <div class="form-group">
                                     <label for="people">Кількість осіб:</label>
                                     <input type="number" id="people" name="people" min="1" required>
@@ -226,7 +225,7 @@
                                     <label for="nights">Кількість діб:</label>
                                     <input type="number" id="nights" name="nights" min="1" required>
                                 </div>
-                              
+                                
                                 <button type="submit" class="modal-submit">Надіслати заявку</button>
                             </form>
                         </div>
@@ -280,7 +279,10 @@
                     item.classList.toggle('active');
                 });
             });
+            
         });
+        
+        
     </script>
 </body>
 </html>

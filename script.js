@@ -103,33 +103,43 @@
             });
             
             // FAQ
-            const faqItems = document.querySelectorAll('.faq-item');
-            
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                
-                question.addEventListener('click', () => {
-                    // Закриваємо всі інші відкриті елементи
-                    faqItems.forEach(otherItem => {
-                        if (otherItem !== item && otherItem.classList.contains('active')) {
-                            otherItem.classList.remove('active');
-                        }
-                    });
-                    
-                    // Переключаємо поточний елемент
-                    item.classList.toggle('active');
-                });
-            });
-            
-            // Закриття галереї при натисканні ESC
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && galleryOverlay.style.display === 'flex') {
-                    galleryOverlay.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
+           const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const toggle = item.querySelector('.faq-toggle');
+    
+    // Додаємо обробник кліку на весь блок питання та на сам toggle
+    question.addEventListener('click', (e) => {
+        // Перевіряємо, чи клік був саме на toggle
+        if (e.target.classList.contains('faq-toggle') || e.target.parentElement.classList.contains('faq-toggle')) {
+            e.stopPropagation(); // Зупиняємо спливання події
+        }
+        
+        // Закриваємо всі інші відкриті елементи
+        faqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+                otherItem.classList.remove('active');
+            }
         });
-   
+        
+        // Переключаємо поточний елемент
+        item.classList.toggle('active');
+        
+        // Оновлюємо текст toggle
+        const toggle = item.querySelector('.faq-toggle');
+        toggle.textContent = item.classList.contains('active') ? '-' : '+';
+    });
+});
+
+// Закриття галереї при натисканні ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && galleryOverlay?.style?.display === 'flex') {
+        galleryOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
 
 
         
